@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var meals: [Meal] = []
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        DessertList(meals: meals)
     }
 }
 

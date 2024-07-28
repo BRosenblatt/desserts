@@ -7,19 +7,28 @@
 
 import SwiftUI
 
-struct DessertListItemView: View {
+struct DessertListItemView: View {    
+    var meal: Meal
+    
     var body: some View {
         VStack {
-            Image("Placeholder")
+            Image(meal.image)
                 .resizable()
+                .shadow(radius: 5)
+                .border(.gray, width: 1)
                 .frame(width: 150.0, height: 150.0)
-            Text("Dessert Recipe Name")
+            Text(meal.name)
                 .font(.subheadline)
-            Spacer()
         }
+        Spacer()
     }
 }
 
 #Preview {
-    DessertListItemView()
+    Group {
+        DessertListItemView(meal: .sample1)
+        DessertListItemView(meal: .sample2)
+        DessertListItemView(meal: .sample3)
+        DessertListItemView(meal: .sample4)
+    }
 }

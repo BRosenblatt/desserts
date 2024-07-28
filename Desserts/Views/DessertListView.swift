@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct DessertList: View {
+    var meals: [Meal]
+    
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
-        Text("Dessert List View")
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: 20) {
+                ForEach(meals) { meal in
+                    DessertListItemView(meal: meal)
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    DessertList()
+    DessertList(meals: Meal.sampleData)
 }
