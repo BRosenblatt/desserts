@@ -14,13 +14,14 @@ struct DessertListItemView: View {
         VStack {
             Image(meal.image)
                 .resizable()
-                .shadow(radius: 5)
-                .border(.gray, width: 1)
-                .frame(width: 150.0, height: 150.0)
+                .frame(width: 150, height: 150)
+                .mask(RoundedRectangle(cornerRadius: 8))
             Text(meal.name)
                 .font(.subheadline)
+                .fontWeight(.semibold)
+                .multilineTextAlignment(.center)
+                .lineLimit(4, reservesSpace: true)
         }
-        Spacer()
     }
 }
 

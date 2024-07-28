@@ -17,11 +17,12 @@ struct DessertList: View {
     
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: columns, spacing: 20) {
+            LazyVGrid(columns: columns, spacing: 10) {
                 ForEach(meals) { meal in
                     DessertListItemView(meal: meal)
                 }
             }
+            .padding()
         }
     }
 }
