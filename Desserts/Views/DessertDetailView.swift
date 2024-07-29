@@ -11,18 +11,12 @@ struct DessertDetailView: View {
     var meal: Meal
     
     var body: some View {
-        GeometryReader { metrics in
-            
-            var imageWidth = metrics.size.width
-            
             VStack(alignment: .leading) {
                 Image(meal.image)
                     .resizable()
                     .mask(RoundedRectangle(cornerRadius: 8))
                     .aspectRatio(contentMode: .fit)
-                    .padding(.all)
-                    .frame(width: imageWidth)
-                
+                    .padding(.horizontal)
                 VStack(alignment: .leading) {
                     Text(meal.name)
                         .font(.largeTitle)
@@ -43,11 +37,10 @@ struct DessertDetailView: View {
                     Text("Instructions steps")
                         .font(.subheadline)
                 }
-                .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                .padding(.horizontal)
             }
         }
     }
-}
 
 #Preview {
     DessertDetailView(meal: .sample4)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB4388F62C581F990085F94A /* DessertDetails.json in Resources */ = {isa = PBXBuildFile; fileRef = EB4388F52C581F990085F94A /* DessertDetails.json */; };
 		EBF3A3A02C558075000AFF4E /* DessertsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF3A39F2C558075000AFF4E /* DessertsApp.swift */; };
 		EBF3A3A22C558075000AFF4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF3A3A12C558075000AFF4E /* ContentView.swift */; };
 		EBF3A3A42C558077000AFF4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBF3A3A32C558077000AFF4E /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB4388F52C581F990085F94A /* DessertDetails.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DessertDetails.json; sourceTree = "<group>"; };
 		EBF3A39C2C558075000AFF4E /* Desserts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Desserts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBF3A39F2C558075000AFF4E /* DessertsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertsApp.swift; sourceTree = "<group>"; };
 		EBF3A3A12C558075000AFF4E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				EBF3A3B82C5591A1000AFF4E /* Model */,
 				EBF3A3B12C5582E9000AFF4E /* Views */,
 				EBF3A3BE2C559960000AFF4E /* DessertList.json */,
+				EB4388F52C581F990085F94A /* DessertDetails.json */,
 				EBF3A3A32C558077000AFF4E /* Assets.xcassets */,
 				EBF3A3A52C558077000AFF4E /* Preview Content */,
 			);
@@ -170,6 +173,7 @@
 				EBF3A3A72C558077000AFF4E /* Preview Assets.xcassets in Resources */,
 				EBF3A3A42C558077000AFF4E /* Assets.xcassets in Resources */,
 				EBF3A3BF2C559960000AFF4E /* DessertList.json in Resources */,
+				EB4388F62C581F990085F94A /* DessertDetails.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
