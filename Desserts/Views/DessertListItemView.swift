@@ -14,7 +14,7 @@ struct DessertListItemView: View {
         VStack {
             Image(meal.image)
                 .resizable()
-                .frame(width: 150, height: 150)
+                .aspectRatio(contentMode: .fit)
                 .mask(RoundedRectangle(cornerRadius: 8))
             Text(meal.name)
                 .font(.subheadline)

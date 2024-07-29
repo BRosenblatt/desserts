@@ -2,7 +2,7 @@
 //  MealResponse.swift
 //  Desserts
 //
-//  Created by Matthew Kauper on 7/27/24.
+//  Created by Becca Kauper on 7/27/24.
 //
 
 import UIKit
