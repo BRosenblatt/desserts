@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    var meals: [Meal] = []
+    var meals: [Meal] = Meal.sampleData
     
     var body: some View {
         DessertList(meals: meals)

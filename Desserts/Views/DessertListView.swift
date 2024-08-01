@@ -11,22 +11,34 @@ struct DessertList: View {
     var meals: [Meal]
     
     var body: some View {
-        GeometryReader { metrics in
-            ScrollView {
-                let itemWidth = metrics.size.width / 2 - 30
-                let columns = [
-                    GridItem(.fixed(itemWidth), spacing: 20),
-                    GridItem(.fixed(itemWidth), spacing: 20)
-                ]
-                LazyVGrid(columns: columns) {
-                    ForEach(meals) { meal in
-                        DessertListItemView(meal: meal)
+        NavigationStack {
+            GeometryReader { metrics in
+                ScrollView {
+                    let itemWidth = metrics.size.width / 2 - 30
+                    let columns = [
+                        GridItem(.fixed(itemWidth), spacing: 20),
+                        GridItem(.fixed(itemWidth), spacing: 20)
+                    ]
+                    LazyVGrid(columns: columns) {
+                        ForEach(meals) { meal in
+                            NavigationLink {
+                                DessertDetailView(meal: .sample1)
+                            } label: {
+                                DessertListItemView(meal: meal)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .padding(.bottom, -40)
+                        }
+                        .navigationTitle("Desserts")
                     }
-                    .padding(.bottom, -20)
                 }
+                .padding(.all)
             }
-            .padding(.all)
         }
+    }
+    
+    func fetchMeal(for: String) {
+        // make API call
     }
 }
 

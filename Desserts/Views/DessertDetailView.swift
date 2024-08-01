@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DessertDetailView: View {
-    var meal: Meal
+    var meal: MealDetailResponse
     
     var body: some View {
             VStack(alignment: .leading) {
@@ -26,15 +26,16 @@ struct DessertDetailView: View {
                     Text("Ingredients")
                         .font(.title2)
                         .fontWeight(.semibold)
-                    
-                    Text("Ingredients list")
+                    Text("\(meal.ingredient1)")
                         .font(.subheadline)
-                                        
+                    Text(meal.ingredient2)
+                        .font(.subheadline)
+
                     Text("Instructions")
                         .font(.title2)
                         .fontWeight(.semibold)
                     
-                    Text("Instructions steps")
+                    Text(meal.instructions)
                         .font(.subheadline)
                 }
                 .padding(.horizontal)
@@ -43,5 +44,5 @@ struct DessertDetailView: View {
     }
 
 #Preview {
-    DessertDetailView(meal: .sample4)
+    DessertDetailView(meal: .sample1)
 }
