@@ -12,10 +12,16 @@ struct DessertListItemView: View {
     
     var body: some View {
         VStack {
-            Image(meal.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .mask(RoundedRectangle(cornerRadius: 8))
+            AsyncImage(url: URL(string: meal.image)) { image in
+                image.resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .mask(RoundedRectangle(cornerRadius: 8))
+            } placeholder: {
+                Image(systemName: "birthday.cake.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
+            
             Text(meal.name)
                 .font(.subheadline)
                 .fontWeight(.semibold)
@@ -26,10 +32,5 @@ struct DessertListItemView: View {
 }
 
 #Preview {
-    Group {
-        DessertListItemView(meal: .sample1)
-        DessertListItemView(meal: .sample2)
-        DessertListItemView(meal: .sample3)
-        DessertListItemView(meal: .sample4)
-    }
+    DessertListItemView(meal: .sample1)
 }

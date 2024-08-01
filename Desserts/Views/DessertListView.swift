@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DessertList: View {
-    var meals: [Meal]
+    @StateObject var mealViewModel = MealViewModel()
     
     var body: some View {
         NavigationStack {
@@ -20,7 +20,7 @@ struct DessertList: View {
                         GridItem(.fixed(itemWidth), spacing: 20)
                     ]
                     LazyVGrid(columns: columns) {
-                        ForEach(meals) { meal in
+                        ForEach(mealViewModel.meals) { meal in
                             NavigationLink {
                                 DessertDetailView(meal: .sample1)
                             } label: {
@@ -35,13 +35,16 @@ struct DessertList: View {
                 .padding(.all)
             }
         }
-    }
-    
-    func fetchMeal(for: String) {
-        // make API call
+        .onAppear {
+            if mealViewModel.meals.isEmpty {
+                Task {
+                    await mealViewModel.fetchMeals()
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    DessertList(meals: Meal.sampleData)
+    DessertList()
 }

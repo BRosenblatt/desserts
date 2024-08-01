@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EB4388F62C581F990085F94A /* DessertDetails.json in Resources */ = {isa = PBXBuildFile; fileRef = EB4388F52C581F990085F94A /* DessertDetails.json */; };
+		EB4388F92C5C3DE00085F94A /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4388F82C5C3DE00085F94A /* MealViewModel.swift */; };
 		EBF3A3A02C558075000AFF4E /* DessertsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF3A39F2C558075000AFF4E /* DessertsApp.swift */; };
 		EBF3A3A22C558075000AFF4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF3A3A12C558075000AFF4E /* ContentView.swift */; };
 		EBF3A3A42C558077000AFF4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBF3A3A32C558077000AFF4E /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		EB4388F52C581F990085F94A /* DessertDetails.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DessertDetails.json; sourceTree = "<group>"; };
+		EB4388F82C5C3DE00085F94A /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
 		EBF3A39C2C558075000AFF4E /* Desserts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Desserts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBF3A39F2C558075000AFF4E /* DessertsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertsApp.swift; sourceTree = "<group>"; };
 		EBF3A3A12C558075000AFF4E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB4388F72C5C3DCF0085F94A /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				EB4388F82C5C3DE00085F94A /* MealViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		EBF3A3932C558075000AFF4E = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				EBF3A39F2C558075000AFF4E /* DessertsApp.swift */,
+				EB4388F72C5C3DCF0085F94A /* View Model */,
 				EBF3A3B92C559207000AFF4E /* Networking */,
 				EBF3A3B82C5591A1000AFF4E /* Model */,
 				EBF3A3B12C5582E9000AFF4E /* Views */,
@@ -185,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBF3A3A22C558075000AFF4E /* ContentView.swift in Sources */,
+				EB4388F92C5C3DE00085F94A /* MealViewModel.swift in Sources */,
 				EBF3A3BB2C55922B000AFF4E /* APIClient.swift in Sources */,
 				EBF3A3B32C558C9A000AFF4E /* DessertListItemView.swift in Sources */,
 				EBF3A3C12C559C60000AFF4E /* MealResponse.swift in Sources */,

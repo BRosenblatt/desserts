@@ -7,9 +7,10 @@
 
 import Foundation
 
-class APIClient {
+@MainActor class APIClient: ObservableObject {
+    
     enum Endpoint {
-        static let baseURL = "www.themealdb.com/api/json/v1/1/"
+        static let baseURL = "https://www.themealdb.com/api/json/v1/1/"
         
         case getMealsByDessert
         case getMealDetails(id: String)
@@ -32,30 +33,16 @@ class APIClient {
     
     // TODO: - fetch list of meals by dessert category
     
-    class func getMealsList(completion: @escaping ([Meal]?, Error?) -> Void) {
+    static func getMealsList() async -> [Meal]? {
         let dessertEndpoint = APIClient.Endpoint.getMealsByDessert.url
-        let task = URLSession.shared.dataTask(with: dessertEndpoint) { data, response, error in
-            guard let data = data else {
-                DispatchQueue.main.async {
-                    completion(nil, error)
-                }
-                return
-            }
-            let decoder = JSONDecoder()
-            
-            do {
-                let response = try decoder.decode(MealListResponse.self, from: data)
-                let result = response.meals
-                DispatchQueue.main.async {
-                    completion(result, nil)
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    completion(nil, error)
-                }
-            }
+        do {
+            let (data, _) = try await URLSession.shared.data(from: dessertEndpoint)
+            let decodedResponse = try JSONDecoder().decode(MealListResponse.self, from: data)
+            return decodedResponse.meals
+        } catch {
+            print("Something went wrong \(error)")
+            return nil
         }
-        task.resume()
     }
     // TODO: - fetch meal/dessert details by id
 }

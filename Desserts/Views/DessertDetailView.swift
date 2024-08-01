@@ -40,6 +40,7 @@ struct DessertDetailView: View {
                 }
                 .padding(.horizontal)
             }
+            .padding(.top, -40)
         }
     }
 

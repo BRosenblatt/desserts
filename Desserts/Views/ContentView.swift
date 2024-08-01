@@ -12,7 +12,7 @@ struct ContentView: View {
     var meals: [Meal] = Meal.sampleData
     
     var body: some View {
-        DessertList(meals: meals)
+        DessertList()
     }
 }
 
