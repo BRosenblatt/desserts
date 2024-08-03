@@ -22,7 +22,7 @@ struct DessertList: View {
                     LazyVGrid(columns: columns) {
                         ForEach(mealViewModel.meals) { meal in
                             NavigationLink {
-                                DessertDetailView(meal: .sample1)
+                                DessertDetailView(mealId: meal.id)
                             } label: {
                                 DessertListItemView(meal: meal)
                             }

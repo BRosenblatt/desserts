@@ -8,10 +8,10 @@
 import UIKit
 
 struct MealListResponse: Codable {
-    let meals: [Meal]
+    let meals: [MealModel]
 }
 
-struct Meal: Identifiable, Codable, Hashable {
+struct MealModel: Identifiable, Codable, Hashable {
     let name: String
     let image: String
     let id: String
@@ -24,15 +24,19 @@ struct Meal: Identifiable, Codable, Hashable {
     }
     
     // Test data
-    static let sample1 = Meal(name: "Affogato", image: "Placeholder 1", id: "1")
-    static let sample2 = Meal(name: "Black Forest Cake", image: "Placeholder 2", id: "2")
-    static let sample3 = Meal(name: "Key Lime Pie", image: "Placeholder 3", id: "3")
-    static let sample4 = Meal(name: "Salted Caramel Cheesecake jaehvlhnnkeqbvkhbkewbvbwe kwuegbhkuvbw", image: "Placeholder 4", id: "4")
+    static let sample1 = MealModel(name: "Affogato", image: "Placeholder 1", id: "1")
+    static let sample2 = MealModel(name: "Black Forest Cake", image: "Placeholder 2", id: "2")
+    static let sample3 = MealModel(name: "Key Lime Pie", image: "Placeholder 3", id: "3")
+    static let sample4 = MealModel(name: "Salted Caramel Cheesecake jaehvlhnnkeqbvkhbkewbvbwe kwuegbhkuvbw", image: "Placeholder 4", id: "4")
     
-    static let sampleData: [Meal] = [sample1, sample2, sample3, sample4]
+    static let sampleData: [MealModel] = [sample1, sample2, sample3, sample4]
 }
 
-struct MealDetailResponse: Identifiable, Codable, Hashable {
+struct MealDetailResponse: Codable {
+    let meals: [MealDetailModel]
+}
+
+struct MealDetailModel: Identifiable, Codable, Hashable {
     let name: String
     let image: String
     let id: String
@@ -125,8 +129,5 @@ struct MealDetailResponse: Identifiable, Codable, Hashable {
         case measure19 = "strMeasure19"
         case measure20 = "strMeasure20"
     }
-    
-//    var ingredientList: [String] = []
-//    var measurementList: [String] = []
-  static let sample1 = MealDetailResponse(name: "Apple Frangipan Tart", image: "Placeholder 1", id: "1", instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", ingredient1: "- test", ingredient2: "- test", ingredient3: "test", ingredient4: "test", ingredient5: "test", ingredient6: "test", ingredient7: "test", ingredient8: "test", ingredient9: "test", ingredient10: "test", ingredient11: "test", ingredient12: "test", ingredient13: "test", ingredient14: "test", ingredient15: "test", ingredient16: "test", ingredient17: "test", ingredient18: "test", ingredient19: "test", ingredient20: "test", measure1: "- 1 tbsp", measure2: "- 1 tbsp", measure3: "1 tbsp", measure4: "1 tbsp", measure5: "tes1 tbspt", measure6: "1 tbsp", measure7: "1 tbsp", measure8: "1 tbsp", measure9: "1 tbsp", measure10: "1 tbsp", measure11: "1 tbsp", measure12: "1 tbsp", measure13: "1 tbsp", measure14: "1 tbsp", measure15: "1 tbsp", measure16: "1 tbsp", measure17: "1 tbsp", measure18: "1 tbsp", measure19: "1 tbsp", measure20: "1 tbsp")
+//  static let sample1 = MealDetailResponse(name: "Apple Frangipan Tart", image: "Placeholder 1", id: "1", instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", ingredient1: "- test", ingredient2: "- test", ingredient3: "test", ingredient4: "test", ingredient5: "test", ingredient6: "test", ingredient7: "test", ingredient8: "test", ingredient9: "test", ingredient10: "test", ingredient11: "test", ingredient12: "test", ingredient13: "test", ingredient14: "test", ingredient15: "test", ingredient16: "test", ingredient17: "test", ingredient18: "test", ingredient19: "test", ingredient20: "test", measure1: "- 1 tbsp", measure2: "- 1 tbsp", measure3: "1 tbsp", measure4: "1 tbsp", measure5: "tes1 tbspt", measure6: "1 tbsp", measure7: "1 tbsp", measure8: "1 tbsp", measure9: "1 tbsp", measure10: "1 tbsp", measure11: "1 tbsp", measure12: "1 tbsp", measure13: "1 tbsp", measure14: "1 tbsp", measure15: "1 tbsp", measure16: "1 tbsp", measure17: "1 tbsp", measure18: "1 tbsp", measure19: "1 tbsp", measure20: "1 tbsp")
 }

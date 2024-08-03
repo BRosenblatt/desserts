@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    var meals: [Meal] = Meal.sampleData
+    var meals: [MealModel] = MealModel.sampleData
     
     var body: some View {
         DessertList()
@@ -17,5 +17,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(meals: Meal.sampleData)
+    ContentView(meals: MealModel.sampleData)
 }

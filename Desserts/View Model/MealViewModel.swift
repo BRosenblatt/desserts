@@ -9,11 +9,11 @@ import Foundation
 
 @MainActor
 class MealViewModel: ObservableObject {
-    @Published var meals = [Meal]()
+    @Published var meals = [MealModel]()
     
     func fetchMeals() async {
-        guard let mealData: [Meal] = await APIClient.getMealsList() else {
+        guard let meals: [MealModel] = await APIClient.getMealsList() else {
             return }
-        meals = mealData
+        self.meals = meals
     }
 }

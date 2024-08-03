@@ -33,7 +33,7 @@ import Foundation
     
     // TODO: - fetch list of meals by dessert category
     
-    static func getMealsList() async -> [Meal]? {
+    static func getMealsList() async -> [MealModel]? {
         let dessertEndpoint = APIClient.Endpoint.getMealsByDessert.url
         do {
             let (data, _) = try await URLSession.shared.data(from: dessertEndpoint)
@@ -44,5 +44,16 @@ import Foundation
             return nil
         }
     }
-    // TODO: - fetch meal/dessert details by id
+
+    static func getMealDetails(id: String) async -> MealDetailModel? {
+        let mealDetailsEndpoint = APIClient.Endpoint.getMealDetails(id: id).url
+        do {
+            let (data, _) = try await URLSession.shared.data(from: mealDetailsEndpoint)
+            let decodedResponse = try JSONDecoder().decode(MealDetailResponse.self, from: data)
+            return decodedResponse.meals.first
+        } catch {
+            print("Could not fetch meal details: \(error)")
+            return nil
+        }
+    }
 }

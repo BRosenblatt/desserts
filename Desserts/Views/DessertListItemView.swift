@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DessertListItemView: View {    
-    var meal: Meal
+    var meal: MealModel
     
     var body: some View {
         VStack {

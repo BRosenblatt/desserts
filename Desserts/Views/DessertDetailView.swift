@@ -8,17 +8,27 @@
 import SwiftUI
 
 struct DessertDetailView: View {
-    var meal: MealDetailResponse
+    @StateObject var mealDetailViewModel = MealDetailViewModel()
+    
+    let mealId: String
     
     var body: some View {
+        
+        if let mealDetails = mealDetailViewModel.mealDetails {
             VStack(alignment: .leading) {
-                Image(meal.image)
-                    .resizable()
-                    .mask(RoundedRectangle(cornerRadius: 8))
-                    .aspectRatio(contentMode: .fit)
-                    .padding(.horizontal)
+                AsyncImage(url: URL(string: mealDetails.image)) { image in
+                    image.resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .mask(RoundedRectangle(cornerRadius: 8))
+                        .padding(.horizontal)
+                } placeholder: {
+                    Image(systemName: "birthday.cake.fill")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
+                
                 VStack(alignment: .leading) {
-                    Text(meal.name)
+                    Text(mealDetailViewModel.mealDetails?.name ?? "")
                         .font(.largeTitle)
                     
                     Divider()
@@ -26,24 +36,34 @@ struct DessertDetailView: View {
                     Text("Ingredients")
                         .font(.title2)
                         .fontWeight(.semibold)
-                    Text("\(meal.ingredient1)")
+                    Text("placeholder ingredient")
                         .font(.subheadline)
-                    Text(meal.ingredient2)
+                    Text("placeholder ingredient")
                         .font(.subheadline)
-
+                    
                     Text("Instructions")
                         .font(.title2)
                         .fontWeight(.semibold)
                     
-                    Text(meal.instructions)
+                    Text(mealDetailViewModel.mealDetails?.instructions ?? "")
                         .font(.subheadline)
                 }
                 .padding(.horizontal)
             }
             .padding(.top, -40)
+            .onAppear {
+                if mealDetailViewModel.mealDetails == nil {
+                    Task {
+                        await mealDetailViewModel.fetchMealDetails(id: mealId)
+                    }
+                }
+            }
+        } else {
+            Image("birthday.cake.fill")
         }
     }
+}
 
 #Preview {
-    DessertDetailView(meal: .sample1)
+    DessertDetailView(mealId: "")
 }
