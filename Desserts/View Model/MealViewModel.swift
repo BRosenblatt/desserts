@@ -14,6 +14,8 @@ class MealViewModel: ObservableObject {
     func fetchMeals() async {
         guard let meals: [MealModel] = await APIClient.getMealsList() else {
             return }
-        self.meals = meals
+        self.meals = meals.sorted(by: { left, right in
+            left.name < right.name
+        })
     }
 }
