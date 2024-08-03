@@ -10,10 +10,9 @@ import SwiftUI
 struct DessertDetailView: View {
     @StateObject var mealDetailViewModel = MealDetailViewModel()
     
-    let mealId: String
+    var mealId: String
     
     var body: some View {
-        
         if let mealDetails = mealDetailViewModel.mealDetails {
             VStack(alignment: .leading) {
                 AsyncImage(url: URL(string: mealDetails.image)) { image in
@@ -28,7 +27,7 @@ struct DessertDetailView: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Text(mealDetailViewModel.mealDetails?.name ?? "")
+                    Text(mealDetails.name)
                         .font(.largeTitle)
                     
                     Divider()
@@ -45,21 +44,23 @@ struct DessertDetailView: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                     
-                    Text(mealDetailViewModel.mealDetails?.instructions ?? "")
+                    Text(mealDetails.instructions)
                         .font(.subheadline)
                 }
                 .padding(.horizontal)
             }
             .padding(.top, -40)
-            .onAppear {
-                if mealDetailViewModel.mealDetails == nil {
+            
+        } else {
+            Image(systemName: "birthday.cake.fill")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding(.horizontal)
+                .onAppear {
                     Task {
                         await mealDetailViewModel.fetchMealDetails(id: mealId)
                     }
                 }
-            }
-        } else {
-            Image("birthday.cake.fill")
         }
     }
 }
