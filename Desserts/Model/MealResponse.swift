@@ -20,9 +20,8 @@ struct MealModel: Identifiable, Codable, Hashable {
         case name = "strMeal"
         case image = "strMealThumb"
         case id = "idMeal"
-
+        
     }
-    
     // Test data
     static let sample1 = MealModel(name: "Affogato", image: "Placeholder 1", id: "1")
     static let sample2 = MealModel(name: "Black Forest Cake", image: "Placeholder 2", id: "2")
@@ -128,5 +127,63 @@ struct MealDetailModel: Identifiable, Codable, Hashable {
         case measure18 = "strMeasure18"
         case measure19 = "strMeasure19"
         case measure20 = "strMeasure20"
+    }
+    
+    var ingredientArray: [String] {
+        [ingredient2,
+         ingredient3,
+         ingredient4,
+         ingredient5,
+         ingredient6,
+         ingredient7,
+         ingredient8,
+         ingredient9,
+         ingredient10,
+         ingredient11,
+         ingredient12,
+         ingredient13,
+         ingredient14,
+         ingredient15,
+         ingredient16,
+         ingredient17,
+         ingredient18,
+         ingredient19,
+         ingredient20]
+    }
+    
+    var measurementArray: [String] {
+        [measure1,
+         measure2,
+         measure3,
+         measure4,
+         measure5,
+         measure6,
+         measure7,
+         measure8,
+         measure9,
+         measure10,
+         measure11,
+         measure12,
+         measure13,
+         measure14,
+         measure15,
+         measure16,
+         measure17,
+         measure18,
+         measure19,
+         measure20]
+    }
+    
+    var combinedIngredientsAndMeasurements: [String] {
+        var combinedArray: [String] = []
+        
+        for index in ingredientArray.indices {
+            var combinedString = "- \(measurementArray[index]) \(ingredientArray[index])"
+            if ingredientArray[index].isEmpty {
+                continue
+            }
+            combinedArray.append(combinedString)
+        }
+        return combinedArray
     }
 }

@@ -13,54 +13,59 @@ struct DessertDetailView: View {
     var mealId: String
     
     var body: some View {
-        if let mealDetails = mealDetailViewModel.mealDetails {
-            VStack(alignment: .leading) {
-                AsyncImage(url: URL(string: mealDetails.image)) { image in
-                    image.resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .mask(RoundedRectangle(cornerRadius: 8))
-                        .padding(.horizontal)
-                } placeholder: {
-                    Image(systemName: "birthday.cake.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                }
-                
+        ScrollView {
+            if let mealDetails = mealDetailViewModel.mealDetails {
                 VStack(alignment: .leading) {
-                    Text(mealDetails.name)
-                        .font(.largeTitle)
+                    AsyncImage(url: URL(string: mealDetails.image)) { image in
+                        image.resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .mask(RoundedRectangle(cornerRadius: 8))
+                            .padding(.horizontal)
+                    } placeholder: {
+                        Image(systemName: "birthday.cake.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
                     
-                    Divider()
-                    
-                    Text("Ingredients")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                    Text("placeholder ingredient")
-                        .font(.subheadline)
-                    Text("placeholder ingredient")
-                        .font(.subheadline)
-                    
-                    Text("Instructions")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                    
-                    Text(mealDetails.instructions)
-                        .font(.subheadline)
+                    VStack(alignment: .leading) {
+                        Text(mealDetails.name)
+                            .font(.largeTitle)
+                        
+                        Divider()
+                        
+                        Text("Ingredients")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                        
+                        ForEach(mealDetails.combinedIngredientsAndMeasurements,  id: \.self) { ingredient in
+                            Text(ingredient)
+                                .font(.subheadline)
+                        }
+                        
+                        Spacer()
+                        
+                        Text("Instructions")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                        
+                        Text(mealDetails.instructions)
+                            .font(.subheadline)
+                    }
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
-            }
-            .padding(.top, -40)
-            
-        } else {
-            Image(systemName: "birthday.cake.fill")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .padding(.horizontal)
-                .onAppear {
-                    Task {
-                        await mealDetailViewModel.fetchMealDetails(id: mealId)
+                .padding(.top, -40)
+                
+            } else {
+                Image(systemName: "birthday.cake.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(.horizontal)
+                    .onAppear {
+                        Task {
+                            await mealDetailViewModel.fetchMealDetails(id: mealId)
                     }
                 }
+            }
         }
     }
 }
