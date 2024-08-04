@@ -36,6 +36,5 @@ struct DessertListItemView: View {
         DessertListItemView(meal: .sample1)
         DessertListItemView(meal: .sample2)
         DessertListItemView(meal: .sample3)
-        DessertListItemView(meal: .sample4)
     }
 }

@@ -23,12 +23,11 @@ struct MealModel: Identifiable, Codable {
         
     }
     // Test data
-    static let sample1 = MealModel(name: "Affogato", image: "Placeholder 1", id: "1")
-    static let sample2 = MealModel(name: "Black Forest Cake", image: "Placeholder 2", id: "2")
-    static let sample3 = MealModel(name: "Key Lime Pie", image: "Placeholder 3", id: "3")
-    static let sample4 = MealModel(name: "Salted Caramel Cheesecake jaehvlhnnkeqbvkhbkewbvbwe kwuegbhkuvbw", image: "Placeholder 4", id: "4")
+    static let sample1 = MealModel(name: "Apam balik", image: "https://www.themealdb.com/images/media/meals/adxcbq1619787919.jpg", id: "53049")
+    static let sample2 = MealModel(name: "Apple & Blackberry Crumble", image: "https://www.themealdb.com/images/media/meals/xvsurr1511719182.jpg", id: "52893")
+    static let sample3 = MealModel(name: "Apple Frangipan Tart", image: "https://www.themealdb.com/images/media/meals/wxywrq1468235067.jpg", id: "52768")
     
-    static let sampleData: [MealModel] = [sample1, sample2, sample3, sample4]
+    static let sampleData: [MealModel] = [sample1, sample2, sample3]
 }
 
 struct MealDetailResponse: Codable {
@@ -130,7 +129,7 @@ struct MealDetailModel: Identifiable, Codable {
     
     var ingredientArray: [String?] {
         [ingredient1,
-        ingredient2,
+         ingredient2,
          ingredient3,
          ingredient4,
          ingredient5,
@@ -181,11 +180,10 @@ struct MealDetailModel: Identifiable, Codable {
         let filteredMeasurements = measurementArray.compactMap({ $0 })
         
         for index in ingredientArray.indices {
-            print(index)
-            let combinedString = "- \(filteredMeasurements[index]) \(filteredIngredients[index])"
-            if filteredIngredients[index].isEmpty {
+            if filteredIngredients[index].isEmpty || filteredMeasurements[index].isEmpty {
                 break
             }
+            let combinedString = "- \(filteredMeasurements[index]) \(filteredIngredients[index])"
             combinedArray.append(combinedString)
         }
         return combinedArray

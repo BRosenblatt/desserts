@@ -9,11 +9,13 @@ import Foundation
 
 @MainActor
 class MealViewModel: ObservableObject {
+    
     @Published var meals = [MealModel]()
     
     func fetchMeals() async {
         guard let meals: [MealModel] = await APIClient.getMealsList() else {
-            return }
+            return
+        }
         self.meals = meals.sorted(by: { left, right in
             left.name < right.name
         })

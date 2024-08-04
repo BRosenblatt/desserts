@@ -31,9 +31,7 @@ class APIClient: ObservableObject {
             URL(string: stringValue)!
         }
     }
-    
-    // TODO: - fetch list of meals by dessert category
-    
+        
     static func getMealsList() async -> [MealModel]? {
         let dessertEndpoint = APIClient.Endpoint.getMealsByDessert.url
         do {

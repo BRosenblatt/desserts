@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DessertDetailView: View {
+    
     @StateObject var mealDetailViewModel = MealDetailViewModel()
     
     var mealId: String
@@ -71,5 +72,5 @@ struct DessertDetailView: View {
 }
 
 #Preview {
-    DessertDetailView(mealId: "")
+    DessertDetailView(mealId: "52768")
 }
