@@ -7,7 +7,8 @@
 
 import Foundation
 
-@MainActor class APIClient: ObservableObject {
+@MainActor 
+class APIClient: ObservableObject {
     
     enum Endpoint {
         static let baseURL = "https://www.themealdb.com/api/json/v1/1/"

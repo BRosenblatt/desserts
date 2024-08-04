@@ -59,6 +59,15 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
+		EB6171882C601E3500A5E838 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				EBF3A3BE2C559960000AFF4E /* DessertList.json */,
+				EB4388F52C581F990085F94A /* DessertDetails.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		EBF3A3932C558075000AFF4E = {
 			isa = PBXGroup;
 			children = (
@@ -83,8 +92,7 @@
 				EBF3A3B92C559207000AFF4E /* Networking */,
 				EBF3A3B82C5591A1000AFF4E /* Model */,
 				EBF3A3B12C5582E9000AFF4E /* Views */,
-				EBF3A3BE2C559960000AFF4E /* DessertList.json */,
-				EB4388F52C581F990085F94A /* DessertDetails.json */,
+				EB6171882C601E3500A5E838 /* JSON */,
 				EBF3A3A32C558077000AFF4E /* Assets.xcassets */,
 				EBF3A3A52C558077000AFF4E /* Preview Content */,
 			);

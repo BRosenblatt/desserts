@@ -32,5 +32,10 @@ struct DessertListItemView: View {
 }
 
 #Preview {
-    DessertListItemView(meal: .sample1)
+    Group {
+        DessertListItemView(meal: .sample1)
+        DessertListItemView(meal: .sample2)
+        DessertListItemView(meal: .sample3)
+        DessertListItemView(meal: .sample4)
+    }
 }

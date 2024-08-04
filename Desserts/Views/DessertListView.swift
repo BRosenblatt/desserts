@@ -19,6 +19,7 @@ struct DessertList: View {
                         GridItem(.fixed(itemWidth), spacing: 20),
                         GridItem(.fixed(itemWidth), spacing: 20)
                     ]
+                    
                     LazyVGrid(columns: columns) {
                         ForEach(mealViewModel.meals) { meal in
                             NavigationLink {
