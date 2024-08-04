@@ -40,47 +40,46 @@ struct MealDetailModel: Identifiable, Codable, Hashable {
     let image: String
     let id: String
     let instructions: String
-    let ingredient1: String
-    let ingredient2: String
-    let ingredient3: String
-    let ingredient4: String
-    let ingredient5: String
-    let ingredient6: String
-    let ingredient7: String
-    let ingredient8: String
-    let ingredient9: String
-    let ingredient10: String
-    let ingredient11: String
-    let ingredient12: String
-    let ingredient13: String
-    let ingredient14: String
-    let ingredient15: String
-    let ingredient16: String
-    let ingredient17: String
-    let ingredient18: String
-    let ingredient19: String
-    let ingredient20: String
-    let measure1: String
-    let measure2: String
-    let measure3: String
-    let measure4: String
-    let measure5: String
-    let measure6: String
-    let measure7: String
-    let measure8: String
-    let measure9: String
-    let measure10: String
-    let measure11: String
-    let measure12: String
-    let measure13: String
-    let measure14: String
-    let measure15: String
-    let measure16: String
-    let measure17: String
-    let measure18: String
-    let measure19: String
-    let measure20: String
-    
+    let ingredient1: String?
+    let ingredient2: String?
+    let ingredient3: String?
+    let ingredient4: String?
+    let ingredient5: String?
+    let ingredient6: String?
+    let ingredient7: String?
+    let ingredient8: String?
+    let ingredient9: String?
+    let ingredient10: String?
+    let ingredient11: String?
+    let ingredient12: String?
+    let ingredient13: String?
+    let ingredient14: String?
+    let ingredient15: String?
+    let ingredient16: String?
+    let ingredient17: String?
+    let ingredient18: String?
+    let ingredient19: String?
+    let ingredient20: String?
+    let measure1: String?
+    let measure2: String?
+    let measure3: String?
+    let measure4: String?
+    let measure5: String?
+    let measure6: String?
+    let measure7: String?
+    let measure8: String?
+    let measure9: String?
+    let measure10: String?
+    let measure11: String?
+    let measure12: String?
+    let measure13: String?
+    let measure14: String?
+    let measure15: String?
+    let measure16: String?
+    let measure17: String?
+    let measure18: String?
+    let measure19: String?
+    let measure20: String?
     
     enum CodingKeys: String, CodingKey {
         case name = "strMeal"
@@ -129,8 +128,9 @@ struct MealDetailModel: Identifiable, Codable, Hashable {
         case measure20 = "strMeasure20"
     }
     
-    var ingredientArray: [String] {
-        [ingredient2,
+    var ingredientArray: [String?] {
+        [ingredient1,
+        ingredient2,
          ingredient3,
          ingredient4,
          ingredient5,
@@ -151,7 +151,7 @@ struct MealDetailModel: Identifiable, Codable, Hashable {
          ingredient20]
     }
     
-    var measurementArray: [String] {
+    var measurementArray: [String?] {
         [measure1,
          measure2,
          measure3,
@@ -177,10 +177,14 @@ struct MealDetailModel: Identifiable, Codable, Hashable {
     var combinedIngredientsAndMeasurements: [String] {
         var combinedArray: [String] = []
         
+        let filteredIngredients = ingredientArray.compactMap({ $0 })
+        let filteredMeasurements = measurementArray.compactMap({ $0 })
+        
         for index in ingredientArray.indices {
-            var combinedString = "- \(measurementArray[index]) \(ingredientArray[index])"
-            if ingredientArray[index].isEmpty {
-                continue
+            print(index)
+            let combinedString = "- \(filteredMeasurements[index]) \(filteredIngredients[index])"
+            if filteredIngredients[index].isEmpty {
+                break
             }
             combinedArray.append(combinedString)
         }
