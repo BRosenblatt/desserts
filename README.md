@@ -1,7 +1,7 @@
 # desserts
 
 ## <ins>Overview</ins>
-This is an example project for the Fetch apprenticeship application. The app fetches and displays dessert recipes from [TheMealDB API](https://themealdb.com/api.php). The app retrieves data from the following endpoints: 
+This is Rebecca Kauper's test project for the Fetch apprenticeship application. The app fetches and displays dessert recipes from [TheMealDB API](https://themealdb.com/api.php). The app retrieves data from the following endpoints: 
  - Recipes in the "dessert" category: https://themealdb.com/api/json/v1/1/filter.php?c=Dessert
  - Dessert details: https://themealdb.com/api/json/v1/1/lookup.php?i=MEAL_ID
 
