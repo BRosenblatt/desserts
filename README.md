@@ -1,11 +1,11 @@
 # desserts
 
 ## <ins>Overview</ins>
-This is an example project for the Fetch apprenticeship application. This app fetches dessertsfrom the following API: https://themealdb.com/api.php. The app uses the following endpoints: - -
- - https://themealdb.com/api/json/v1/1/filter.php?c=Dessert
- - https://themealdb.com/api/json/v1/1/lookup.php?i=MEAL_ID
+This is an example project for the Fetch apprenticeship application. The app fetches and displays dessert recipes from [TheMealDB API](https://themealdb.com/api.php). The app retrieves data from the following endpoints: 
+ - Recipes in the "dessert" category: https://themealdb.com/api/json/v1/1/filter.php?c=Dessert
+ - Dessert details: https://themealdb.com/api/json/v1/1/lookup.php?i=MEAL_ID
 
-The app displays a grid listing the desserts (image and name) sorted alphabetically. Tapping a dessert takes the user to the Dessert Detail page, where they can view the dessert name, ingredients/measurements, and recipe instructions.
+The app displays a grid listing the desserts (image and name) sorted alphabetically. Tapping a dessert takes the user to the *Dessert Detail* page, where they can view the dessert name, ingredients/measurements, and recipe instructions.
 
 ## <ins>Download and run</ins>
 - This app is written in SwiftUI.
